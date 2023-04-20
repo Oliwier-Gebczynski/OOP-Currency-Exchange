@@ -1,0 +1,5 @@
+#include "main.h"
+#include "class/wallet.h"
+#include "class/user.h"
+#include "class/admin.h"
+#include "class/currency.h"
