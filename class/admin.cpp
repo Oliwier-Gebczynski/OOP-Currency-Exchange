@@ -1,8 +1,4 @@
-//
-// Created by oliwi on 4/20/2023.
-//
-
-#include "admin.h"
+#include "main.h"
 
 void Admin::addUser(User user) {
 

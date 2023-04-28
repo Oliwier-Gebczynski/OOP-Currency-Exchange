@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <utility>
-#include <vector>
+#include "main.h"
 
 class Currency {
 private:

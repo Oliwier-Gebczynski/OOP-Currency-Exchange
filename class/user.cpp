@@ -1,16 +1,22 @@
-
-#include "user.h"
+#include "main.h"
 
 User::User() {
 
 }
 
 std::string User::getFullName() {
-    return std::string();
+    std::string fullName = firstName;
+    fullName.append(" ");
+    fullName.append(lastName);
+    return fullName;
 }
 
 std::string User::getEmail() {
-    return std::string();
+    return email;
+}
+
+int User::getID() const{
+    return id;
 }
 
 std::string User::setFirstName() {
@@ -61,7 +67,6 @@ void User::exchangeCurrency(std::string fromCurrencyCode, std::string toCurrency
 
 }
 
-Wallet &User::exchangeCurrency(Currency currency) {
-    return <#initializer#>;
-}
+int User::id_counter = 0;
+
 

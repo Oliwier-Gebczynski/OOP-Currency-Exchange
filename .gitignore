@@ -1,0 +1,14 @@
+
+*.log
+*.log
+*.json
+*.json
+*.json
+cmake-build-debug/.ninja_deps
+cmake-build-debug/.ninja_log
+cmake-build-debug/build.ninja
+*.ninja
+*.cmake
+*.obj
+*.txt
+cmake-build-debug/CMakeFiles/clion-environment.txt

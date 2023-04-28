@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
-#include <utility>
-#include <vector>
-#include <map>
-#include "user.h"
+#include "main.h"
 
 class Admin {
 private:

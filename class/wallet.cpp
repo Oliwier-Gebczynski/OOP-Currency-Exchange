@@ -1,9 +1,4 @@
-#include "wallet.h"
-
-Currency Wallet::getCurrency() {
-    return Currency(__cxx11::basic_string(), __cxx11::basic_string(), 0);
-}
-
+#include "main.h"
 
 void Wallet::displayWallet() {
 

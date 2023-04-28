@@ -1,14 +1,9 @@
-#include <iostream>
-#include <string>
-#include <utility>
-#include <vector>
-#include <map>
-#include "currency.h"
-#include "wallet.h"
+#include "main.h"
 
 class User {
 private:
-    int ID;
+    static int id_counter;
+    int id;
     std::string firstName;
     std::string lastName;
     std::string email;
@@ -19,11 +14,15 @@ private:
 public:
     User();
     User(std::string firstName, std::string lastName, std::string email, std::string password, int PIN, Wallet wallet)
-            : firstName(std::move(firstName)), lastName(std::move(lastName)), email(std::move(email)), password(std::move(password)) {}
+            : firstName(std::move(firstName)), lastName(std::move(lastName)), email(std::move(email)), password(std::move(password)), PIN(PIN), wallet(wallet)
+    {
+        id = ++id_counter;
+    }
 
     // get / set
     std::string getFullName();
     std::string getEmail();
+    int getID() const;
 
     std::string setFirstName();
     std::string setLastName();

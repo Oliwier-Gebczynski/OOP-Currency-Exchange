@@ -1,8 +1,4 @@
-//
-// Created by oliwi on 4/20/2023.
-//
-
-#include "currency.h"
+#include "main.h"
 
 std::string Currency::getCode() {
     return std::string();

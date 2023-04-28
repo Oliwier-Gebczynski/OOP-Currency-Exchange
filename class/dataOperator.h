@@ -1,6 +1,4 @@
-#include <fstream>
-#include <vector>
-#include "User.h"
+#include "main.h"
 
 class DataOperator {
 private:
@@ -10,7 +8,7 @@ public:
     DataOperator() {}
 
     void loadUsers(std::string fileName);
-    void addUser(User user);
+    void addUser(std::string firstName, std::string lastName, std::string email, std::string password, int PIN);
     void removeUser(int id);
     void displayUsers();
 

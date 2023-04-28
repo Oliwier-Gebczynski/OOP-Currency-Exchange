@@ -1,8 +1,4 @@
-#include <iostream>
-#include <utility>
-#include <string>
-#include <map>
-#include "Currency.h"
+#include "main.h"
 
 class Wallet {
 private:
@@ -21,6 +17,5 @@ public:
     void addCurrency(std::string currencyCode, double amount);
     void subtractCurrency(std::string currencyCode, double amount);
     void exchangeCurrency(std::string fromCurrencyCode, std::string toCurrencyCode, double amount);
-
 };
 
