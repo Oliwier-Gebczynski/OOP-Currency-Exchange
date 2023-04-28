@@ -1,3 +1,0 @@
-C:/Programming/GitHub/University/c++/OOP-Currency-Exchange/cmake-build-debug/CMakeFiles/OOP_Currency_Exchange.dir
-C:/Programming/GitHub/University/c++/OOP-Currency-Exchange/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Programming/GitHub/University/c++/OOP-Currency-Exchange/cmake-build-debug/CMakeFiles/rebuild_cache.dir
