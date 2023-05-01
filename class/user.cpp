@@ -69,4 +69,24 @@ void User::exchangeCurrency(std::string fromCurrencyCode, std::string toCurrency
 
 int User::id_counter = 0;
 
+std::string User::getFirstName() {
+    return firstName;
+}
+
+std::string User::getLastName() {
+    return lastName;
+}
+
+std::string User::getPassword() {
+    return password;
+}
+
+int User::getPIN() {
+    return PIN;
+}
+
+Wallet User::getWallet() {
+    return wallet;
+}
+
 

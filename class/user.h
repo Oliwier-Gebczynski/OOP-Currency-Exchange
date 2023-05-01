@@ -23,6 +23,11 @@ public:
     std::string getFullName();
     std::string getEmail();
     int getID() const;
+    std::string getFirstName();
+    std::string getLastName();
+    std::string getPassword();
+    int getPIN();
+    Wallet getWallet();
 
     std::string setFirstName();
     std::string setLastName();
