@@ -13,6 +13,10 @@ public:
     void removeUser(int id);
     void displayUsers();
     void saveToFile();
+    void loginSystem();
+    void registerSystem();
 
     std::vector<User> getUsers();
 };
+
+

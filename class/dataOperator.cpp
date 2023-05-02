@@ -70,6 +70,7 @@ void DataOperator::addUser(std::string firstName, std::string lastName, std::str
     Wallet wallet;
     User user(std::move(firstName), std::move(lastName), std::move(email), std::move(password), PIN, wallet);
     users.push_back(user);
+    std::cout << "User added!";
 }
 
 void DataOperator::removeUser(int id) {
@@ -101,4 +102,51 @@ void DataOperator::saveToFile() {
     }
 
     file.close();
+}
+
+void DataOperator::loginSystem() {
+    std::string email, password;
+
+    std::cout << "Email: ";
+    std::cin >> email;
+    std::cout << std::endl;
+
+    std::cout << "Password: ";
+    std::cin >> password;
+    std::cout << std::endl;
+
+    for (User user: users){
+        if((user.getPassword() == password)&&(user.getEmail())==email){
+            std::cout << "Succesfull login! Hi " << user.getFullName() << std::endl;
+        }
+    }
+}
+
+void DataOperator::registerSystem() {
+    std::cout << "----------- REGISTER ----------" << std::endl;
+
+    std::string firstName, lastName, email, password;
+    int PIN;
+
+    std::cout << "First name: ";
+    std::cin >> firstName;
+    std::cout << std::endl;
+
+    std::cout << "lastName: ";
+    std::cin >> lastName;
+    std::cout << std::endl;
+
+    std::cout << "Email: ";
+    std::cin >> email;
+    std::cout << std::endl;
+
+    std::cout << "Password: ";
+    std::cin >> password;
+    std::cout << std::endl;
+
+    std::cout << "PIN: ";
+    std::cin >> PIN;
+    std::cout << std::endl;
+
+    addUser(firstName,lastName,email,password,PIN);
 }
