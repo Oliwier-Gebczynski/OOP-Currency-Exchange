@@ -107,46 +107,91 @@ void DataOperator::saveToFile() {
 void DataOperator::loginSystem() {
     std::string email, password;
 
-    std::cout << "Email: ";
-    std::cin >> email;
-    std::cout << std::endl;
+    bool validData = false;
+    while(!validData){
+        std::cout << "Email: ";
+        std::cin >> email;
+        std::cout << std::endl;
 
-    std::cout << "Password: ";
-    std::cin >> password;
-    std::cout << std::endl;
+        std::cout << "Password: ";
+        std::cin >> password;
+        std::cout << std::endl;
 
-    for (User user: users){
-        if((user.getPassword() == password)&&(user.getEmail())==email){
-            std::cout << "Succesfull login! Hi " << user.getFullName() << std::endl;
+        for (User user: users){
+            if((user.getPassword() == password)&&(user.getEmail())==email){
+                std::cout << "Succesfull login! Hi " << user.getFullName() << std::endl;
+                validData = true;
+            }
         }
+
+        if(!validData){
+            std::cout << "Invalid email or password. Please try again." << std::endl;
+        }
+
     }
+
+
+
 }
 
 void DataOperator::registerSystem() {
     std::cout << "----------- REGISTER ----------" << std::endl;
 
-    std::string firstName, lastName, email, password;
-    int PIN;
+    std::string firstName, lastName, email, password, PIN;
 
+    //name
     std::cout << "First name: ";
     std::cin >> firstName;
     std::cout << std::endl;
 
+    //last name
     std::cout << "lastName: ";
     std::cin >> lastName;
     std::cout << std::endl;
 
-    std::cout << "Email: ";
-    std::cin >> email;
-    std::cout << std::endl;
+    //email
+    bool validEmail = false;
+    while (!validEmail) {
+        std::cout << "Email: ";
+        std::cin >> email;
+        std::cout << std::endl;
 
-    std::cout << "Password: ";
-    std::cin >> password;
-    std::cout << std::endl;
+        size_t atPos = email.find('@');
+        size_t dotPos = email.rfind('.');
+        validEmail = (atPos != std::string::npos && dotPos != std::string::npos && dotPos > atPos + 1);
+        if (!validEmail) {
+            std::cout << "Invalid email address. Please enter a valid email." << std::endl;
+        }
+    }
 
-    std::cout << "PIN: ";
-    std::cin >> PIN;
-    std::cout << std::endl;
+    //password
+    bool validPassword = false;
+    while (!validPassword) {
+        std::cout << "Password (must contain at least one special character): ";
+        std::cin >> password;
+        std::cout << std::endl;
 
-    addUser(firstName,lastName,email,password,PIN);
+        std::regex specialCharRegex("[!@#$%^&*()]");
+        validPassword = std::regex_search(password, specialCharRegex);
+        if (!validPassword) {
+            std::cout << "Password must contain at least one special character. Please enter a valid password." << std::endl;
+        }
+    }
+
+    //PIN
+    bool validPIN = false;
+    while (!validPIN) {
+        std::cout << "PIN (must be exactly 4 digits): ";
+        std::cin >> PIN;
+        std::cout << std::endl;
+
+        if (PIN.length() == 4 && std::all_of(PIN.begin(), PIN.end(), ::isdigit)) {
+            validPIN = true;
+        }
+        else {
+            std::cout << "PIN must be exactly 4 digits. Please enter a valid PIN." << std::endl;
+        }
+    }
+
+    addUser(firstName,lastName,email,password,stoi(PIN));
 }

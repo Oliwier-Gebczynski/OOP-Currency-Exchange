@@ -8,6 +8,8 @@
 #include <iostream>
 #include <set>
 #include <sstream>
+#include <regex>
+#include <algorithm>
 #include "class/wallet.h"
 #include "class/user.h"
 #include "class/admin.h"

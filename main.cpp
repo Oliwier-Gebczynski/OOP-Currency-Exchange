@@ -7,8 +7,8 @@ int main(){
 //    dataOperator.addUser("Marcin", "Szostak", "kukon@gmail.com", "maslo", 1387);
 //    dataOperator.addUser("Krzys", "Rower", "roweromania@gmail.com", "haslo", 1122);
     dataOperator.displayUsers();
-
-    dataOperator.registerSystem();
+    dataOperator.loginSystem();
+//    dataOperator.registerSystem();
 
     dataOperator.getUsers();
     dataOperator.saveToFile();
