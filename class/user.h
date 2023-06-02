@@ -14,9 +14,8 @@ private:
 public:
     User();
     User(std::string firstName, std::string lastName, std::string email, std::string password, int PIN, Wallet wallet)
-            : firstName(std::move(firstName)), lastName(std::move(lastName)), email(std::move(email)), password(std::move(password)), PIN(PIN), wallet(wallet)
-    {
-        id = ++id_counter;
+            : id(++id_counter), firstName(std::move(firstName)), lastName(std::move(lastName)), email(std::move(email)), password(std::move(password)), PIN(PIN), wallet(wallet) {
+        id_counter += 1;
     }
 
     // get / set

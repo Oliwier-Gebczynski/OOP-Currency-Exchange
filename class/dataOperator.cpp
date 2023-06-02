@@ -195,3 +195,44 @@ void DataOperator::registerSystem() {
 
     addUser(firstName,lastName,email,password,stoi(PIN));
 }
+
+void DataOperator::currencyPriceGen(const std::string& fileName) {
+
+    std::ifstream inputFile(fileName);
+    if (!inputFile.is_open()) {
+        std::cout << "Failed to open input file." << std::endl;
+    }
+
+    std::string line;
+    while (std::getline(inputFile, line)) {
+        std::istringstream ss(line);
+        std::string field;
+
+        std::getline(ss, field, ','); // ID
+        std::string code = field;
+
+        std::getline(ss, field, ','); // Name
+        std::string name = field;
+
+        std::getline(ss, field, ','); // Lower bound
+        double lower_bound = stod(field);
+
+        std::getline(ss, field, ','); // Upper bound
+        double upper_bound = stod(field);
+
+        std::random_device rd;
+        std::default_random_engine generator(rd());
+        std::uniform_real_distribution<double> distribution(lower_bound, upper_bound);
+        double random_double = distribution(generator);
+        random_double = std::floor(random_double * 10000) / 10000;
+        std::cout << "Generated random number: " << random_double << std::endl;
+
+        Currency currency(code, name, random_double);
+
+    }
+}
+
+DataOperator::DataOperator() {
+
+}
+

@@ -5,11 +5,13 @@
 #include <vector>
 #include <map>
 #include <fstream>
-#include <iostream>
 #include <set>
 #include <sstream>
 #include <regex>
 #include <algorithm>
+#include <random>
+#include <iomanip>
+#include <cmath>
 #include "class/wallet.h"
 #include "class/user.h"
 #include "class/admin.h"

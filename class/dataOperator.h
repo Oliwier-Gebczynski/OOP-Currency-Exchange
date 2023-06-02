@@ -3,9 +3,11 @@
 class DataOperator {
 private:
     std::vector<User> users;
+    std::vector<Currency> currencies;
+    std::default_random_engine re;
 
 public:
-    DataOperator() {}
+    DataOperator();
 
 
     void loadUsers(const std::string& fileName);
@@ -15,6 +17,7 @@ public:
     void saveToFile();
     void loginSystem();
     void registerSystem();
+    void currencyPriceGen(const std::string& fileName);
 
     std::vector<User> getUsers();
 };
