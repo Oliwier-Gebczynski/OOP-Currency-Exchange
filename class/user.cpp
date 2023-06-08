@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "main.h"
 
 User::User() {
@@ -56,7 +58,7 @@ void User::displayCurrencyStatus() {
 }
 
 void User::addCurrency(std::string currencyCode, double amount) {
-
+    wallet.addCurrency(std::move(currencyCode), amount);
 }
 
 void User::subtractCurrency(std::string currencyCode, double amount) {

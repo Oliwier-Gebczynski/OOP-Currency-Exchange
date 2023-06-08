@@ -20,7 +20,8 @@ public:
     void currencyPriceGen(const std::string& fileName);
 
     std::vector<Currency> getCurrencies();
-    std::vector<User> getUsers();
+    User getUser(int id);
+    std::vector<User>& getUsers();
 };
 
 

@@ -83,7 +83,7 @@ void DataOperator::displayUsers() {
     }
 }
 
-std::vector<User> DataOperator::getUsers() {
+std::vector<User>& DataOperator::getUsers() {
     return users;
 }
 
@@ -238,5 +238,14 @@ DataOperator::DataOperator() {
 
 std::vector<Currency> DataOperator::getCurrencies() {
     return currencies;
+}
+
+User DataOperator::getUser(int id) {
+    for(User user: users){
+        if (id == user.getID()){
+            return user;
+        }
+        std::cout << "User doesnt exist!";
+    }
 }
 

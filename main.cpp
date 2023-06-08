@@ -2,13 +2,13 @@
  * TODO:
  * Warto jeszcze dodać rysunek klas z powiązaniami... Proszę przemyśleć pomysł,
  *  - czy nie dało by się utworzyć klasy waluta (abstrakcyjna) i z niej wyprowadzić konkretne waluty zapisane w tablicy,
- *  - Zmiana wartosci waluty co wlaczenie programu
- *      - generowanie tych wartosci w jakims danym zakresie
+ *  - Zmiana wartosci waluty co wlaczenie programu - done
+ *      - generowanie tych wartosci w jakims danym zakresie - done
  *  - znalezc jakiego przyklady UI
  *
  *  - PANEL USER:
  *      - main panel
- *          - wplacanie srodkow
+ *          - wplacanie srodkow  - 1/2 done
  *
  *          - wyplacanie srodkow
  *
@@ -44,11 +44,21 @@ int main(){
 //    dataOperator.registerSystem();
     dataOperator.currencyPriceGen("currency.csv");
 
-    auto test = dataOperator.getCurrencies();
+//    auto test = dataOperator.getCurrencies();
+//
+//    for(Currency currency: test){
+//        std::cout << currency.getCode() << " [ " << currency.getName() << " ] : " << currency.getExchangeRate() << std::endl;
+//    }
 
-    for(Currency currency: test){
-        std::cout << currency.getCode() << " [ " << currency.getName() << " ] : " << currency.getExchangeRate() << std::endl;
-    }
+    User& userRef = dataOperator.getUser(3);
+
+
+    userRef.getWallet().addCurrency("USD", 420);
+
+
+    std::cout << "Nowa wartość USD dla użytkownika o ID " << 3 << ": " << userRef.getWallet().getUSD() << std::endl;
+
+
 
     dataOperator.getUsers();
     dataOperator.saveToFile();
