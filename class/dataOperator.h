@@ -19,6 +19,7 @@ public:
     void registerSystem();
     void currencyPriceGen(const std::string& fileName);
 
+    std::vector<Currency> getCurrencies();
     std::vector<User> getUsers();
 };
 

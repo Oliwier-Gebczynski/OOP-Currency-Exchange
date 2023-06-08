@@ -43,6 +43,16 @@ int main(){
 //    dataOperator.loginSystem();
 //    dataOperator.registerSystem();
     dataOperator.currencyPriceGen("currency.csv");
+
+    auto test = dataOperator.getCurrencies();
+
+    for(Currency currency: test){
+        std::cout << currency.getCode() << " [ " << currency.getName() << " ] : " << currency.getExchangeRate() << std::endl;
+    }
+
     dataOperator.getUsers();
     dataOperator.saveToFile();
+
+
+
 }

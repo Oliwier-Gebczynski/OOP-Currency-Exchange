@@ -225,14 +225,18 @@ void DataOperator::currencyPriceGen(const std::string& fileName) {
         std::uniform_real_distribution<double> distribution(lower_bound, upper_bound);
         double random_double = distribution(generator);
         random_double = std::floor(random_double * 10000) / 10000;
-        std::cout << "Generated random number: " << random_double << std::endl;
 
         Currency currency(code, name, random_double);
 
+        currencies.push_back(currency);
     }
 }
 
 DataOperator::DataOperator() {
 
+}
+
+std::vector<Currency> DataOperator::getCurrencies() {
+    return currencies;
 }
 

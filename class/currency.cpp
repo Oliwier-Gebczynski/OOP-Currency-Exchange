@@ -1,13 +1,13 @@
 #include "main.h"
 
 std::string Currency::getCode() {
-    return std::string();
+    return code;
 }
 
 std::string Currency::getName() {
-    return std::string();
+    return name;
 }
 
 double Currency::getExchangeRate() {
-    return 0;
+    return exchangeRate;
 }
