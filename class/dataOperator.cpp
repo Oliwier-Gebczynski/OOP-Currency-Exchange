@@ -1,4 +1,5 @@
 #include "main.h"
+#include "dataOperator.h"
 
 
 void DataOperator::loadUsers(const std::string& fileName) {
@@ -263,6 +264,24 @@ void DataOperator::subtractCurrency(int id, const std::string& code, double amou
     for (User& user : users) {
         if (user.getID() == id) {
             user.subtractCurrency(code, amount);
+            break;
+        }
+    }
+}
+
+void DataOperator::changePassword(int id, std::string pass) {
+    for (User& user : users) {
+        if (user.getID() == id) {
+            user.setPassword(pass);
+            break;
+        }
+    }
+}
+
+void DataOperator::deleteAccount(int id) {
+    for (auto it = users.begin(); it != users.end(); ++it) {
+        if (it->getID() == id) {
+            users.erase(it);
             break;
         }
     }

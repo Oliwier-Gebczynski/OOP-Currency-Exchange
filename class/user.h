@@ -31,7 +31,7 @@ public:
     std::string setFirstName();
     std::string setLastName();
     std::string setEmail();
-    std::string setPassword();
+    std::string setPassword(std::string& pass);
     int setPIN();
 
     // user wallet
@@ -46,5 +46,8 @@ public:
     //settings
     std::string changePassword();
     std::string changeEmail();
-    void deleteAccount();
+
+    ~User() {
+        std::cout << "Destroying User " << id << std::endl;
+    }
 };

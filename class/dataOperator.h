@@ -20,6 +20,8 @@ public:
     void currencyPriceGen(const std::string& fileName);
     void addCurrency(int id, const std::string& code, double amount);
     void subtractCurrency(int id, const std::string& code, double amount);
+    void changePassword(int id, std::string pass);
+    void deleteAccount(int id);
 
     std::vector<Currency> getCurrencies();
     User getUser(int id);

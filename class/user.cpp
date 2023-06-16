@@ -1,5 +1,3 @@
-#include <utility>
-
 #include "main.h"
 
 User::User() {
@@ -33,8 +31,8 @@ std::string User::setEmail() {
     return std::string();
 }
 
-std::string User::setPassword() {
-    return std::string();
+std::string User::setPassword(std::string& pass) {
+    password = pass;
 }
 
 std::string User::changePassword() {

@@ -12,9 +12,9 @@
  *
  *          - wyplacanie srodkow - done
  *
- *          - zmiana hasla
+ *          - zmiana hasla - done
  *
- *          - usuniecie konta
+ *          - usuniecie konta -
  *
  *          - podglad na aktualne ceny walut
  *
@@ -44,10 +44,11 @@ int main(){
 //    dataOperator.registerSystem();
     dataOperator.currencyPriceGen("currency.csv");
 
-    dataOperator.addCurrency(3,"PLN", 1000);
+    //dataOperator.addCurrency(3,"PLN", 1000);
     dataOperator.getUsers();
-
-    dataOperator.subtractCurrency(3, "PLN", 500);
+    //dataOperator.changePassword(3, "dziala");
+    dataOperator.deleteAccount(3);
+    //dataOperator.subtractCurrency(3, "PLN", 500);
     dataOperator.getUsers();
     dataOperator.saveToFile();
 
