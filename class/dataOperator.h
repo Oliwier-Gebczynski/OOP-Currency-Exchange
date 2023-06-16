@@ -18,6 +18,8 @@ public:
     void loginSystem();
     void registerSystem();
     void currencyPriceGen(const std::string& fileName);
+    void addCurrency(int id, const std::string& code, double amount);
+    void subtractCurrency(int id, const std::string& code, double amount);
 
     std::vector<Currency> getCurrencies();
     User getUser(int id);

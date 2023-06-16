@@ -62,7 +62,7 @@ void User::addCurrency(std::string currencyCode, double amount) {
 }
 
 void User::subtractCurrency(std::string currencyCode, double amount) {
-
+    wallet.subtractCurrency(std::move(currencyCode), amount);
 }
 
 void User::exchangeCurrency(std::string fromCurrencyCode, std::string toCurrencyCode, double amount) {

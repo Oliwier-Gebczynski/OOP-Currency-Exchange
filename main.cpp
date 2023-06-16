@@ -8,9 +8,9 @@
  *
  *  - PANEL USER:
  *      - main panel
- *          - wplacanie srodkow  - 1/2 done
+ *          - wplacanie srodkow  - done
  *
- *          - wyplacanie srodkow
+ *          - wyplacanie srodkow - done
  *
  *          - zmiana hasla
  *
@@ -44,22 +44,10 @@ int main(){
 //    dataOperator.registerSystem();
     dataOperator.currencyPriceGen("currency.csv");
 
-//    auto test = dataOperator.getCurrencies();
-//
-//    for(Currency currency: test){
-//        std::cout << currency.getCode() << " [ " << currency.getName() << " ] : " << currency.getExchangeRate() << std::endl;
-//    }
+    dataOperator.addCurrency(3,"PLN", 1000);
+    dataOperator.getUsers();
 
-    User& userRef = dataOperator.getUser(3);
-
-
-    userRef.getWallet().addCurrency("USD", 420);
-
-
-    std::cout << "Nowa wartość USD dla użytkownika o ID " << 3 << ": " << userRef.getWallet().getUSD() << std::endl;
-
-
-
+    dataOperator.subtractCurrency(3, "PLN", 500);
     dataOperator.getUsers();
     dataOperator.saveToFile();
 

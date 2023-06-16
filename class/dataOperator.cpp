@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 void DataOperator::loadUsers(const std::string& fileName) {
     std::ifstream inputFile(fileName);
     if (!inputFile.is_open()) {
@@ -241,11 +242,29 @@ std::vector<Currency> DataOperator::getCurrencies() {
 }
 
 User DataOperator::getUser(int id) {
-    for(User user: users){
+    for(User& user: users){
         if (id == user.getID()){
             return user;
         }
         std::cout << "User doesnt exist!";
+    }
+}
+
+void DataOperator::addCurrency(int id, const std::string& code, double amount) {
+    for (User& user : users) {
+        if (user.getID() == id) {
+            user.addCurrency(code, amount);
+            break;
+        }
+    }
+}
+
+void DataOperator::subtractCurrency(int id, const std::string& code, double amount) {
+    for (User& user : users) {
+        if (user.getID() == id) {
+            user.subtractCurrency(code, amount);
+            break;
+        }
     }
 }
 
