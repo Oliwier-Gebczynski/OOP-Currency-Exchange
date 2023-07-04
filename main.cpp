@@ -12,13 +12,15 @@
  *
  *          - wyplacanie srodkow - done
  *
+ *          - zmiana waluty z jedna na druga -
+ *
  *          - zmiana hasla - done
  *
- *          - usuniecie konta -
+ *          - usuniecie konta - done
  *
- *          - podglad na aktualne ceny walut
+ *          - podglad na aktualne ceny walut - done
  *
- *          - wyloguj
+ *          - wyloguj -
  *
  *  - PANEL ADMIN:
  *      - main panel
@@ -45,11 +47,13 @@ int main(){
     dataOperator.currencyPriceGen("currency.csv");
 
     //dataOperator.addCurrency(3,"PLN", 1000);
-    dataOperator.getUsers();
+    //dataOperator.getUsers();
+    //dataOperator.exchangeCurrency("EUR", "USD", 10);
     //dataOperator.changePassword(3, "dziala");
-    dataOperator.deleteAccount(3);
+    //dataOperator.deleteAccount(3);
     //dataOperator.subtractCurrency(3, "PLN", 500);
-    dataOperator.getUsers();
+    //dataOperator.getUsers();
+    dataOperator.currentCurrencyCost();
     dataOperator.saveToFile();
 
 

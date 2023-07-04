@@ -11,3 +11,7 @@ std::string Currency::getName() {
 double Currency::getExchangeRate() {
     return exchangeRate;
 }
+
+Currency::Currency() {
+
+}

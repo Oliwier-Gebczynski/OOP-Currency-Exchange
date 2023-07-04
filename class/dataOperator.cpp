@@ -1,6 +1,4 @@
 #include "main.h"
-#include "dataOperator.h"
-
 
 void DataOperator::loadUsers(const std::string& fileName) {
     std::ifstream inputFile(fileName);
@@ -285,5 +283,32 @@ void DataOperator::deleteAccount(int id) {
             break;
         }
     }
+}
+
+void DataOperator::currentCurrencyCost() {
+    std::cout << " |$| Currency cost |$| " << std::endl;
+    for(auto cur: currencies){
+        if(cur.getCode() != "PLN"){
+            std::cout << " | ";
+            exchangeCurrency(cur.getCode(), "PLN", 1);
+            std::cout<< " | " << std::endl;
+        }
+    }
+}
+
+void DataOperator::exchangeCurrency(const std::string& code1, const std::string& code2, double amount) {
+    Currency first;
+    Currency second;
+
+    for (auto cur : currencies) {
+        if (cur.getCode() == code1) {
+            first = cur;
+        } else if (cur.getCode() == code2) {
+            second = cur;
+        }
+    }
+
+    double convertedAmount = amount * (second.getExchangeRate() / first.getExchangeRate());
+    std::cout << amount << " " << code1 << " = " << convertedAmount << " " << code2;
 }
 

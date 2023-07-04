@@ -7,6 +7,7 @@ private:
     double exchangeRate;
 
 public:
+    Currency();
     Currency(std::string code, std::string name, double exchangeRate)
             : code(std::move(code)), name(std::move(name)), exchangeRate(exchangeRate) {}
 

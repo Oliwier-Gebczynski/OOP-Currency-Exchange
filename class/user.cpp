@@ -31,7 +31,7 @@ std::string User::setEmail() {
     return std::string();
 }
 
-std::string User::setPassword(std::string& pass) {
+void User::setPassword(std::string& pass) {
     password = pass;
 }
 
@@ -41,10 +41,6 @@ std::string User::changePassword() {
 
 std::string User::changeEmail() {
     return std::string();
-}
-
-void User::deleteAccount() {
-
 }
 
 int User::setPIN() {
