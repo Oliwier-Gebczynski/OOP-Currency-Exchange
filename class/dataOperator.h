@@ -19,7 +19,8 @@ public:
     void currencyPriceGen(const std::string& fileName);
     void addCurrency(int id, const std::string& code, double amount);
     void subtractCurrency(int id, const std::string& code, double amount);
-    void exchangeCurrency(const std::string& code1, const std::string& code2, double amount);
+    std::vector<double> exchangeCurrency(const std::string& code1, const std::string& code2, double amount);
+    void exchangeUserCurrency(int id, const std::string& code1, const std::string& code2, double amount);
     void changePassword(int id, std::string pass);
     void deleteAccount(int id);
     void currentCurrencyCost();

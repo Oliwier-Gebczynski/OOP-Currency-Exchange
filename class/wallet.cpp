@@ -77,3 +77,36 @@ double Wallet::getGBP() const{ return GBP; }
 double Wallet::getAUD() const{ return AUD; }
 double Wallet::getCHF() const{ return CHF; }
 double Wallet::getPLN() const{ return PLN; }
+
+double Wallet::getCurrencyValue(std::string code) {
+    double currencyValue = 0.0;
+
+    switch (code[0]) {
+        case 'U':
+            currencyValue = USD;
+            break;
+        case 'E':
+            currencyValue = EUR;
+            break;
+        case 'J':
+            currencyValue = JPY;
+            break;
+        case 'G':
+            currencyValue = GBP;
+            break;
+        case 'A':
+            currencyValue = AUD;
+            break;
+        case 'C':
+            currencyValue = CHF;
+            break;
+        case 'P':
+            currencyValue = PLN;
+            break;
+        default:
+            std::cout << "ERROR: " << code << std::endl;
+            break;
+    }
+
+    return currencyValue;
+}

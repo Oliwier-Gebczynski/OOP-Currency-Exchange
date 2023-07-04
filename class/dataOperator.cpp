@@ -296,7 +296,7 @@ void DataOperator::currentCurrencyCost() {
     }
 }
 
-void DataOperator::exchangeCurrency(const std::string& code1, const std::string& code2, double amount) {
+std::vector<double> DataOperator::exchangeCurrency(const std::string& code1, const std::string& code2, double amount) {
     Currency first;
     Currency second;
 
@@ -310,5 +310,25 @@ void DataOperator::exchangeCurrency(const std::string& code1, const std::string&
 
     double convertedAmount = amount * (second.getExchangeRate() / first.getExchangeRate());
     std::cout << amount << " " << code1 << " = " << convertedAmount << " " << code2;
+
+    std::vector<double> result;
+    result.push_back(amount);
+    result.push_back(convertedAmount);
+
+    return result;
+}
+
+void DataOperator::exchangeUserCurrency(int id ,const std::string& code1, const std::string& code2, double amount) {
+
+    for(User user: users){
+        if (user.getID() == id && user.getWallet().getCurrencyValue(code1) < amount){
+            std::cout << "You don't have enough " << code1 << "!" << std::endl;
+            return;
+        }
+    }
+    auto amounts = exchangeCurrency(code1, code2, amount);
+
+    addCurrency(id, code2, amounts[1]);
+    subtractCurrency(id, code1, amounts[0]);
 }
 

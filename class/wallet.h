@@ -20,10 +20,12 @@ public:
     double getAUD() const;
     double getCHF() const;
     double getPLN() const;
+    double getCurrencyValue(std::string code);
 
     void displayWallet();
     void addCurrency(std::string currencyCode, double amount);
     void subtractCurrency(std::string currencyCode, double amount);
     void exchangeCurrency(std::string fromCurrencyCode, std::string toCurrencyCode, double amount);
+
 };
 

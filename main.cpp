@@ -12,7 +12,9 @@
  *
  *          - wyplacanie srodkow - done
  *
- *          - zmiana waluty z jedna na druga -
+ *          - zmiana waluty z jedna na druga - done
+ *
+ *          - wymiana miedzy walutami - done
  *
  *          - zmiana hasla - done
  *
@@ -38,24 +40,7 @@
 int main(){
     DataOperator dataOperator;
     dataOperator.loadUsers("base.csv");
-//    dataOperator.addUser("Ola", "Makota", "makota@gmail.com", "haslomaslo", 1987);
-//    dataOperator.addUser("Marcin", "Szostak", "kukon@gmail.com", "maslo", 1387);
-//    dataOperator.addUser("Krzys", "Rower", "roweromania@gmail.com", "haslo", 1122);
-//    dataOperator.displayUsers();
-//    dataOperator.loginSystem();
-//    dataOperator.registerSystem();
     dataOperator.currencyPriceGen("currency.csv");
 
-    //dataOperator.addCurrency(3,"PLN", 1000);
-    //dataOperator.getUsers();
-    //dataOperator.exchangeCurrency("EUR", "USD", 10);
-    //dataOperator.changePassword(3, "dziala");
-    //dataOperator.deleteAccount(3);
-    //dataOperator.subtractCurrency(3, "PLN", 500);
-    //dataOperator.getUsers();
-    dataOperator.currentCurrencyCost();
     dataOperator.saveToFile();
-
-
-
 }
