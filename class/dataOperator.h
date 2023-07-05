@@ -14,7 +14,7 @@ public:
     void removeUser(int id);
     void displayUsers();
     void saveToFile();
-    void loginSystem();
+    User loginSystem();
     void registerSystem();
     void currencyPriceGen(const std::string& fileName);
     void addCurrency(int id, const std::string& code, double amount);
@@ -24,6 +24,8 @@ public:
     void changePassword(int id, std::string pass);
     void deleteAccount(int id);
     void currentCurrencyCost();
+    void userSystem(User user);
+    void adminSystem(User user);
 
     std::vector<Currency> getCurrencies();
     User getUser(int id);

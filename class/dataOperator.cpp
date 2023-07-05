@@ -104,11 +104,10 @@ void DataOperator::saveToFile() {
     file.close();
 }
 
-void DataOperator::loginSystem() {
+User DataOperator::loginSystem() {
     std::string email, password;
 
-    bool validData = false;
-    while(!validData){
+    while(true){
         std::cout << "Email: ";
         std::cin >> email;
         std::cout << std::endl;
@@ -120,18 +119,13 @@ void DataOperator::loginSystem() {
         for (User user: users){
             if((user.getPassword() == password)&&(user.getEmail())==email){
                 std::cout << "Succesfull login! Hi " << user.getFullName() << std::endl;
-                validData = true;
+                return user;
             }
         }
 
-        if(!validData){
-            std::cout << "Invalid email or password. Please try again." << std::endl;
-        }
+        std::cout << "Invalid email or password. Please try again." << std::endl;
 
     }
-
-
-
 }
 
 void DataOperator::registerSystem() {
@@ -330,5 +324,158 @@ void DataOperator::exchangeUserCurrency(int id ,const std::string& code1, const 
 
     addCurrency(id, code2, amounts[1]);
     subtractCurrency(id, code1, amounts[0]);
+}
+
+void DataOperator::userSystem(User user) {
+    std::string option;
+
+    while(true){
+        std::cout << " | 1) Current price | 2) Add money | 3) Exchange money | 4) Subtract money | 5) Change password | 6) Logout | ( type '1' or ... '5' )"  << std::endl;
+        std::cin >> option;
+
+        if (option == "1"){
+            currentCurrencyCost();
+        }else if (option == "2"){
+            std::string code;
+            double amount;
+
+            std::cout << "Type - code: ";
+            std::cin >> code;
+
+            std::cout << "Type - amount: ";
+            std::cin >> amount;
+
+            addCurrency(user.getID(), code, amount);
+        }else if (option == "3"){
+            std::string code1, code2;
+            double amount;
+
+            std::cout << "Type - code form: ";
+            std::cin >> code1;
+
+            std::cout << "Type - code to: ";
+            std::cin >> code2;
+
+            std::cout << "Type - amount: ";
+            std::cin >> amount;
+
+            exchangeUserCurrency(user.getID(), code1, code2, amount);
+        }else if (option == "4"){
+            std::string code;
+            double amount;
+
+            std::cout << "Type - code: ";
+            std::cin >> code;
+
+            std::cout << "Type - amount: ";
+            std::cin >> amount;
+
+            subtractCurrency(user.getID(), code, amount);
+        }else if (option == "5"){
+            std::string currPass, newPass;
+            std::cout << "Type current password: ";
+            std::cin >> currPass;
+
+            bool validPass = false;
+            while(!validPass){
+                if(currPass == user.getPassword()){
+                    std::cout << "New password: ";
+                    std::cin >> newPass;
+
+                    changePassword(user.getID(), newPass);
+                    validPass = true;
+                }else{
+                    std::cout << "Incorrect password!" << std::endl;
+                    std::cout << "Type current password: ";
+                    std::cin >> currPass;
+                }
+            }
+        }else if(option == "6"){
+            break;
+        }
+    }
+
+    std::cout << "Logout... ";
+}
+
+void DataOperator::adminSystem(User user) {
+    std::string option;
+
+    while(true){
+        std::cout << " | 1) Add money | 2) Exchange money | 3) Subtract money | 4) Change password | 5) Delete user | 6) Logout | ( type '1' or ... '5' )"  << std::endl;
+        std::cin >> option;
+
+        if (option == "1"){
+            std::string code;
+            double amount;
+            int id;
+
+            std::cout << "Type - user id: ";
+            std::cin >> id;
+
+            std::cout << "Type - code: ";
+            std::cin >> code;
+
+            std::cout << "Type - amount: ";
+            std::cin >> amount;
+
+            addCurrency(id, code, amount);
+        }else if (option == "2"){
+            std::string code1, code2;
+            double amount;
+            int id;
+
+            std::cout << "Type - user id: ";
+            std::cin >> id;
+
+            std::cout << "Type - code form: ";
+            std::cin >> code1;
+
+            std::cout << "Type - code to: ";
+            std::cin >> code2;
+
+            std::cout << "Type - amount: ";
+            std::cin >> amount;
+
+            exchangeUserCurrency(id, code1, code2, amount);
+        }else if (option == "3"){
+            std::string code;
+            double amount;
+            int id;
+
+            std::cout << "Type - user id: ";
+            std::cin >> id;
+
+            std::cout << "Type - code: ";
+            std::cin >> code;
+
+            std::cout << "Type - amount: ";
+            std::cin >> amount;
+
+            subtractCurrency(id, code, amount);
+        }else if (option == "4") {
+            std::string newPass;
+            int id;
+
+            std::cout << "Type - user id: ";
+            std::cin >> id;
+
+            std::cout << "Type new password: ";
+            std::cin >> newPass;
+
+            changePassword(id, newPass);
+        }else if (option == "5") {
+            int id;
+
+            std::cout << "Type - user id: ";
+            std::cin >> id;
+
+            deleteAccount(id);
+        }else if(option == "6"){
+            break;
+        }
+    }
+
+    std::cout << "Logout... ";
 }
 
